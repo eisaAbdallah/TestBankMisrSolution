@@ -145,7 +145,13 @@ for(PlotData resultOfPlot : plotDataList) {
         PlotData statusOfIrrigation = this.plotModelRepository.findById(resultOfPlot.getId()).orElseThrow();
         resultOfPlot.setActive(true);
         resultOfPlot.setIrrigationRequired(true);
-        resultOfPlot.setTimeOfLastIrrigation(LocalTime.now());
+         DateTimeFormatter fmtTimeOfLastIrrigation = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .appendPattern( "h:mma ")
+                .toFormatter(Locale.US);
+
+        LocalTime timeOfLastIrrigation = LocalTime.parse(fmt.format(LocalTime.now()), fmtTimeOfLastIrrigation);
+        resultOfPlot.setTimeOfLastIrrigation(timeOfLastIrrigation);
         this.plotModelRepository.saveAndFlush(statusOfIrrigation);
 
 
