@@ -132,7 +132,7 @@ public class ApiIrrigationResource {
       plotDataList = this.plotReadPlatformService.getAllPlotSchedueled();
 for(PlotData resultOfPlot : plotDataList) {
     PlotDataConfig plotDataConfig = this.plotModelConfigRepository.findById(resultOfPlot.getPlotDataConfig().getId()).orElseThrow();
-    if (plotDataConfig.getTimeSlot().getHour() > LocalTime.now().getHour()+11 && plotDataConfig.getTimeSlot().getMinute() > LocalTime.now().getMinute()) {
+    if (plotDataConfig.getTimeSlot().getHour() == LocalTime.now().getHour() && plotDataConfig.getTimeSlot().getMinute() == LocalTime.now().getMinute()) {
 
 
         PlotData statusOfIrrigation = this.plotModelRepository.findById(resultOfPlot.getId()).orElseThrow();
