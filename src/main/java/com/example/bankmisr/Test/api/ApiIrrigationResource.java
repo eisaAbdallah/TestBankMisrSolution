@@ -150,7 +150,7 @@ for(PlotData resultOfPlot : plotDataList) {
                 .appendPattern( "h:mma ")
                 .toFormatter(Locale.US);
 
-        LocalTime timeOfLastIrrigation = LocalTime.parse(fmt.format(LocalTime.now()), fmtTimeOfLastIrrigation);
+        LocalTime timeOfLastIrrigation = LocalTime.parse(fmtTimeOfLastIrrigation.format(LocalTime.now()), fmtTimeOfLastIrrigation);
         resultOfPlot.setTimeOfLastIrrigation(timeOfLastIrrigation);
         this.plotModelRepository.saveAndFlush(statusOfIrrigation);
 
