@@ -95,7 +95,7 @@ public class ApiIrrigationResource {
         return new ResponseEntity<>("Plot Data editted Successfully", HttpStatus.OK);
     }
 
-    @GetMapping("/senesor")
+    @PostMapping("/senesor")
     @Scheduled(fixedRate = 5000)
     @ResponseBody
     public ResponseEntity<Set<PlotData>> getAllPlotsScheduled() throws Exception {
@@ -106,7 +106,7 @@ public class ApiIrrigationResource {
         headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
 
          try {
-         ResponseEntity<PlotData[]> response=this.restTemplate.getForEntity("https://dmainofsensordevice.com/url",PlotData[].class);
+         ResponseEntity<PlotData[]> response=this.restTemplate.getForEntity("https://domainofsensordevice.com/url",PlotData[].class);
 
          } catch (HttpStatusCodeException ex) {
              counterOfRetryTimes++;
