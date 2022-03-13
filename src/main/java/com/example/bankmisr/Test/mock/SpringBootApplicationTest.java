@@ -100,7 +100,7 @@ String jsonString= map.writeValueAsString(plotModel());
 
        
         assertEquals(response.getStatusCode(), HttpStatus.OK);
-        this.mockMvc.perform(get("/senesor").contentType(MediaType.APPLICATION_JSON).content("")).andExpect(status().isOk());
+        this.mockMvc.perform(get("/senesor").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
 
     }
