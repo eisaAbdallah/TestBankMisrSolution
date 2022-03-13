@@ -96,13 +96,11 @@ String jsonString= map.writeValueAsString(plotModel());
     }
 
     @Test
-    public void sendRequestsToSensor() throws Exception {
+    public void sendRequestsToSensorToValidate() throws Exception {
 
-        ObjectMapper map=new ObjectMapper();
-        String jsonString= map.writeValueAsString(plotModel());
-        ResponseEntity response = apiIrrigationResource.getAllPlotsScheduled();
+       
         assertEquals(response.getStatusCode(), HttpStatus.OK);
-        this.mockMvc.perform(get("/senesor").contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isOk());
+        this.mockMvc.perform(get("/senesor").contentType(MediaType.APPLICATION_JSON).content("")).andExpect(status().isOk());
 
 
     }
@@ -111,7 +109,7 @@ String jsonString= map.writeValueAsString(plotModel());
 
         ObjectMapper map=new ObjectMapper();
         String jsonString= map.writeValueAsString(plotModel());
-        ResponseEntity response = apiIrrigationResource.();
+        ResponseEntity response = apiIrrigationResource.doIrrigation();
         assertEquals(response.getStatusCode(), HttpStatus.OK);
         this.mockMvc.perform(get("/senesor").contentType(MediaType.APPLICATION_JSON).content(jsonString)).andExpect(status().isOk());
 
