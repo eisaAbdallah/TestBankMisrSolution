@@ -113,11 +113,10 @@ public class ApiIrrigationResource {
 
                  throw new RestResponseEntityExceptionHandler("Alert The Sensor Isn`t Available");
              }
-            System.out.println(ex.getRawStatusCode());
+              throw new RestResponseEntityExceptionHandler(ex.getRawStatusCode()+" "+ex.getStatusCode().toString()+" "+ex.getResponseBodyAsString());
 
-            System.out.println(ex.getStatusCode().toString());
+      
 
-            System.out.println(ex.getResponseBodyAsString());
 
 
         }
