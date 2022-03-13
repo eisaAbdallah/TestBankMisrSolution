@@ -107,10 +107,11 @@ String jsonString= map.writeValueAsString(plotModel());
  @Test
     public void sendRequestsToSensorToIrrigate() {
 
-       
+   ObjectMapper map=new ObjectMapper();
+        String jsonString= map.writeValueAsString(plotModel());      
         ResponseEntity response = apiIrrigationResource.doIrrigation();
         assertEquals(response.getStatusCode(), HttpStatus.OK);
-        this.mockMvc.perform(get("/senesor").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+        this.mockMvc.perform(get("/senesorSuccess").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 
 
     }
