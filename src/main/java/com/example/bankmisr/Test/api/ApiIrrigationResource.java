@@ -95,7 +95,7 @@ public class ApiIrrigationResource {
         return new ResponseEntity<>("Plot Data editted Successfully", HttpStatus.OK);
     }
 
-    @PostMapping("/senesor")
+    @PostMapping("/senesorAlert")
     @Scheduled(fixedRate = 5000)
     @ResponseBody
     public ResponseEntity<Set<PlotData>> getAllPlotsScheduled() throws Exception {
@@ -140,7 +140,7 @@ public class ApiIrrigationResource {
 
 @PostMapping("/irrigationSuccess")
     @ResponseBody
-    public ResponseEntity<Set<PlotData>> getAllPlotsScheduled() throws Exception {
+    public ResponseEntity<Set<PlotData>> doIrrigation() {
 
 
         Set<PlotData> plotDataList =null;
