@@ -95,7 +95,7 @@ public class ApiIrrigationResource {
         return new ResponseEntity<>("Plot Data editted Successfully", HttpStatus.OK);
     }
 
-    @PostMapping("/senesorAlert")
+    @GetMapping("/senesorAlert")
     @Scheduled(fixedRate = 5000)
     @ResponseBody
     public ResponseEntity<Set<PlotData>> getAllPlotsScheduled() throws Exception {
