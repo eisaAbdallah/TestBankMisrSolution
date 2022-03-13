@@ -129,6 +129,27 @@ public class ApiIrrigationResource {
 
 
 
+      
+
+        return new ResponseEntity<Set<PlotData>>(plotDataList,HttpStatus.OK);
+
+
+
+    }
+
+
+@PostMapping("/irrigationSuccess")
+    @ResponseBody
+    public ResponseEntity<Set<PlotData>> getAllPlotsScheduled() throws Exception {
+
+
+        Set<PlotData> plotDataList =null;
+
+
+
+
+
+
       plotDataList = this.plotReadPlatformService.getAllPlotSchedueled();
 for(PlotData resultOfPlot : plotDataList) {
     PlotDataConfig plotDataConfig = this.plotModelConfigRepository.findById(resultOfPlot.getPlotDataConfig().getId()).orElseThrow();
@@ -177,8 +198,6 @@ for(PlotData resultOfPlot : plotDataList) {
 
 
     }
-
-
 
 
 
