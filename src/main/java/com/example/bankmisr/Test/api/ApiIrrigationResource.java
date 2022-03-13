@@ -138,7 +138,7 @@ public class ApiIrrigationResource {
     }
 
 
-@PostMapping("/irrigationSuccess")
+@RequestMapping("/irrigationSuccess")
     @ResponseBody
     public ResponseEntity<Set<PlotData>> doIrrigation() {
 
