@@ -20,15 +20,11 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
-
-
 import java.net.URLEncoder;
 import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-
-
 
 
 @RestController
@@ -124,22 +120,12 @@ public class ApiIrrigationResource {
         }
         Set<PlotData> plotDataList =null;
 
-
-
-
-
-
-      
-
         return new ResponseEntity<Set<PlotData>>(plotDataList,HttpStatus.OK);
-
-
 
     }
 
 
-@RequestMapping("/irrigationIfSuccess")
-     @Scheduled(fixedRate = 10000)
+    @RequestMapping("/irrigationIfSuccess")
     @ResponseBody
     public ResponseEntity<Set<PlotData>> doIrrigation() {
 
@@ -185,13 +171,11 @@ for(PlotData resultOfPlot : plotDataList) {
         resultOfPlot.setIrrigationRequired(false);
         this.plotModelRepository.saveAndFlush(statusOfIrrigation);
 
-
-
-}
+     }
 
 
 
-}
+     }
 
 
         return new ResponseEntity<Set<PlotData>>(plotDataList,HttpStatus.OK);
@@ -199,10 +183,5 @@ for(PlotData resultOfPlot : plotDataList) {
 
 
     }
-
-
-
-
-
 
 }
