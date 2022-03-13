@@ -139,7 +139,7 @@ public class ApiIrrigationResource {
 
 
 @RequestMapping("/irrigationIfSuccess")
-     @Scheduled(fixedRate = 5000)
+     @Scheduled(fixedRate = 10000)
     @ResponseBody
     public ResponseEntity<Set<PlotData>> doIrrigation() {
 
