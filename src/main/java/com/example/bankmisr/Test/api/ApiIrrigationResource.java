@@ -138,7 +138,8 @@ public class ApiIrrigationResource {
     }
 
 
-@RequestMapping("/irrigationSuccess")
+@RequestMapping("/irrigationIfSuccess")
+     @Scheduled(fixedRate = 5000)
     @ResponseBody
     public ResponseEntity<Set<PlotData>> doIrrigation() {
 
